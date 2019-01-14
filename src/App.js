@@ -1,29 +1,25 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
+import React from 'react';
+import Card from './components/Card';
+import Title from "./components/Title";
+import Wrapper from "./components/Wrapper";
+import simpsons from './simpsons.json';
 import './App.css';
 
-class App extends Component {
-  render() {
-    return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
-      </div>
-    );
-  }
+function App (){
+  return ( 
+    <Wrapper>
+    <Title>Clicky Game</Title>
+    <Card 
+    id={simpsons.id}
+    key={simpsons.id}
+    name={simpsons.name}
+    image={simpsons.image}
+    />
+    </Wrapper>
+  )
 }
+
+
 
 export default App;
 
