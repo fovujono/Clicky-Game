@@ -9,14 +9,16 @@ function App (){
   return ( 
     <Wrapper>
     <Title>Clicky Game</Title>
+     {simpsons.map(simpsons => (
     <Card 
-    id={simpsons.id}
-    key={simpsons.id}
-    name={simpsons.name}
-    image={simpsons.image}
+     id={simpsons.id}
+     key={simpsons.id}
+     name={simpsons.name}
+     image={simpsons.image}
     />
+    ))}
     </Wrapper>
-  )
+  );
 }
 
 
