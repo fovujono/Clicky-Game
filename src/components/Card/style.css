@@ -1,5 +1,4 @@
 .card {
-  font-family: Georgia, 'Times New Roman', Times, serif;
   background: rgb(255, 252, 65);
   border-radius: 2px;
   height: 220px;
@@ -8,7 +7,14 @@
   width: 230px;
   color: black;
   box-shadow: 0 3px 6px #999, 0 3px 6px #999;
+  text-shadow: 0 3px 6px rgba(255, 103, 128, 0.801), 0 3px 6px rgba(255, 103, 128, 0.527);
   text-align: left;
+}
+
+.card:hover{
+  height:225px;
+  width:240px;
+  box-shadow: 0 3px 6px rgb(0, 0, 0), 0 3px 6px rgb(0, 0, 0);
 }
 
 .card > .img-container {
@@ -19,4 +25,10 @@
 }
 .card > .img-container > img {
   width: 65%
+}
+
+.card > .content {
+  font-family: 'Lilita One', cursive;
+  font-size: 10px;
+  text-align: center;
 }

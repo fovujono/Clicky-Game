@@ -1,16 +1,38 @@
-import React from 'react';
+import React,{ Component } from 'react';
 import Card from './components/Card';
+import ScoreBoard from './components/ScoreBoard'
 import Title from "./components/Title";
 import Wrapper from "./components/Wrapper";
 import simpsons from './simpsons.json';
 import './App.css';
 
-function App (){
+class App extends Component {
+state = {
+    simpsons: 0
+}
+
+//   // Setting this.state.simpsons to the simpsons json simpsons
+//   function handleClick(simpsons){
+//     for (let i = simpsons.length - 1; i > 0; i--) {
+//       var j = Math.floor(Math.random() * (i + 1));
+//       var temp = simpsons[i];
+//       simpsons[i] = simpsons[j];
+//       simpsons[j] = temp
+//       }
+//    return {
+//      simpsons
+  
+// }
+
+ render(){
+     // Map over this.state.simpsons and render a Card component for each simpson object 
   return ( 
+
     <Wrapper>
-    <Title>Clicky Game</Title>
+    <Title>Simpsons Clicky Game    <ScoreBoard>Score: {this.score}  Top Score:{this.topScore}
+    </ScoreBoard></Title>
      {simpsons.map(simpsons => (
-    <Card 
+    <Card
      id={simpsons.id}
      key={simpsons.id}
      name={simpsons.name}
@@ -18,8 +40,8 @@ function App (){
     />
     ))}
     </Wrapper>
-  );
-}
+ 
+  )}};
 
 
 
