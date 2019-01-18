@@ -4,35 +4,68 @@ import ScoreBoard from './components/ScoreBoard'
 import Title from "./components/Title";
 import Wrapper from "./components/Wrapper";
 import simpsons from './simpsons.json';
+import _ from 'lodash';
 import './App.css';
 
+
 class App extends Component {
-state = {
-    simpsons: 0
+  state = {
+    simpsons,
+    count: 0
+  }
+
+  cardClicked = id => {
+    let simpsonsClicked = false;
+    this.setState({
+      count: this.state.count + 1
+    })
+    this.setState({
+      simpsons: this.state.simpsons.map((sim)=> {
+        if (sim.id === id) {
+          if (sim.clicked === true) {
+            simpsonsClicked = true
+          }
+          sim.clicked = true;
+        }
+        return sim;
+
+      })
+    });
+    if (simpsonsClicked === true) {
+      this.restartGame();
+    }
+      this.shuffle();
+  };
+
+  restartGame = () => {
+    alert("Game Over Try Again")
+    this.setState({
+      simpsons: this.state.simpsons.map((sim)=>{
+        sim.clicked = false;
+        return sim;
+      }),
+      count: 0})
+    }
+
+shuffle = () => {
+  let array = this.state.simpsons;
+  let shuffleArray = _.shuffle(array);
+  this.setState({
+    simpsons: shuffleArray
+  });
 }
 
-//   // Setting this.state.simpsons to the simpsons json simpsons
-//   function handleClick(simpsons){
-//     for (let i = simpsons.length - 1; i > 0; i--) {
-//       var j = Math.floor(Math.random() * (i + 1));
-//       var temp = simpsons[i];
-//       simpsons[i] = simpsons[j];
-//       simpsons[j] = temp
-//       }
-//    return {
-//      simpsons
-  
-// }
 
  render(){
      // Map over this.state.simpsons and render a Card component for each simpson object 
   return ( 
 
     <Wrapper>
-    <Title>Simpsons Clicky Game    <ScoreBoard>Score: {this.score}  Top Score:{this.topScore}
+    <Title>Simpsons Clicky Game    <ScoreBoard>Score: {this.state.count}  Top Score:{this.topScore}
     </ScoreBoard></Title>
-     {simpsons.map(simpsons => (
+     {this.state.simpsons.map(simpsons => (
     <Card
+    cardClicked = {this.cardClicked}
      id={simpsons.id}
      key={simpsons.id}
      name={simpsons.name}
@@ -41,9 +74,9 @@ state = {
     ))}
     </Wrapper>
  
-  )}};
+  )};
 
-
+     };
 
 export default App;
 
