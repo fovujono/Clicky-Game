@@ -4,6 +4,7 @@ import ScoreBoard from './components/ScoreBoard'
 import Title from "./components/Title";
 import Wrapper from "./components/Wrapper";
 import simpsons from './simpsons.json';
+import Directions from './components/Directions';
 import _ from 'lodash';
 import './App.css';
 
@@ -61,8 +62,12 @@ shuffle = () => {
   return ( 
 
     <Wrapper>
-    <Title>Simpsons Clicky Game    <ScoreBoard>Score: {this.state.count}  Top Score:{this.topScore}
-    </ScoreBoard></Title>
+    <Title>Simpsons Clicky Game  
+      <Directions> Dont click the same character twice!</Directions>  
+    <ScoreBoard>
+    Score: {this.state.count}
+    </ScoreBoard>
+    </Title>
      {this.state.simpsons.map(simpsons => (
     <Card
     cardClicked = {this.cardClicked}

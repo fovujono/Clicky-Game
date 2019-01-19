@@ -1,7 +1,7 @@
 .score-board{
     font-family: 'Coiny', cursive;
     width: 100%;
-    height: 50px;
+    height: 80px;
     text-align: center;
     font-size: 30px;
     background-color: rgb(255, 103, 129);
@@ -10,4 +10,8 @@
     padding-top: 10px;
     margin-bottom: 50px;
     text-shadow: 0 3px 6px rgb(0, 0, 0), 0 3px 6px rgb(0, 0, 0);
+}
+
+.collapse{
+    height: 200px;
 }
