@@ -1,4 +1,4 @@
-##Clicky-Game
+## Clicky-Game
 
 There are 12 Simpson Characters!
 
